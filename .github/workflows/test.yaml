@@ -35,4 +35,5 @@ jobs:
 
       - name: Run executable
         run: |
-          ls
+          cd build
+          ./main
