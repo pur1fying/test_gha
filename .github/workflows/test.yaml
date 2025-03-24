@@ -25,6 +25,7 @@ jobs:
           icacls "build\bin\BAAS_ocr_server.exe" /grant Everyone:(F)
           echo "Run Test"
           .\build\bin\BAAS_ocr_server.exe
+          echo "Exit code: $?"
           echo "Run Test Done"
           python -m pip install --upgrade pip
           python -m pip install -r apps/ocr_server/test/requirements.txt
