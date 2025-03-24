@@ -16,5 +16,7 @@ jobs:
        id: run_test
        shell: cmd
        run: |
+         python -m pip install --upgrade pip
+         python -m pip install -r apps/ocr_server/test/requirements.txt
          cd D:\a\test_gha\test_gha
          python -m unittest discover -s .\apps\ocr_server\test -p "*.py"
