@@ -17,5 +17,6 @@ jobs:
        shell: cmd
        run: |
          cd
-         tree /a /f .\build\bin 
+         tree
+         tree /a /f build\bin 
          python -m unittest discover -s .\apps\ocr_server\test -p "*.py"
