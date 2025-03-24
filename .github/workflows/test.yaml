@@ -23,7 +23,7 @@ jobs:
         run: |
           cd D:\a\test_gha\test_gha
           icacls "build\bin\BAAS_ocr_server.exe" /grant Everyone:(F)
-          BAAS_ocr_server.exe
+          .\build\bin\BAAS_ocr_server.exe
           python -m pip install --upgrade pip
           python -m pip install -r apps/ocr_server/test/requirements.txt
           python -m unittest discover -s .\apps\ocr_server\test -p "*.py"
