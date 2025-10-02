@@ -1,9 +1,9 @@
 name: 启动器问题报告 ( Installer Bug Report )
 description: 无法启动BAAS的GUI界面.
-title: "[Bug]: "
+title: "[Installer Bug]: "
 labels: ["问题修复", "GUI相关", "启动器问题"]
 assignees:
-  - Kiramei,Pur1fy
+  - Kiramei,pur1fying
 body:
   - type: dropdown
     id: version
@@ -36,8 +36,8 @@ body:
     id: bug_description
     attributes:
       label: 错误描述 ( Bug Description )
-      description:
-      value: "## 错误描述 \n\n ## 报错截图 \n\n ## 如果你的BAAS版本高于1.4.0, 请提交setup.toml "
+      description: 你提供的信息越详细, 越能帮助我们快速定位问题
+      value: "## 错误描述 \n (请在这里填写错误的文字描述, 包括你的操作, 是否能稳定复现) \n\n ## 报错截图 \n\n ## 如果你的BAAS版本高于1.4.0, 请提交setup.toml "
 
     validations:
       required: true
