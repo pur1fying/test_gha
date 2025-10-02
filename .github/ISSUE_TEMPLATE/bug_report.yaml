@@ -23,7 +23,7 @@ body:
         - 1.1.1
         - 1.1.0
         - 1.0 Beta
-      default: 1.4.3 (Latest)
+      default: 0
     validations:
       required: true
 
