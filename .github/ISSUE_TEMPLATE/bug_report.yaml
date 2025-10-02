@@ -37,13 +37,7 @@ body:
     attributes:
       label: 错误描述 ( Bug Description )
       description:
-      value: "
-      ## 错误描述
-      
-      ## 错误截图
-      
-      ## 如果你的BAAS版本高于1.4.0, 请提交setup.toml
-      "
+      value: "## 错误描述 \n\n ## 报错截图 \n\n ## 如果你的BAAS版本高于1.4.0, 请提交setup.toml "
 
     validations:
       required: true
