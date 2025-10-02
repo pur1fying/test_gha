@@ -9,7 +9,9 @@ body:
     id: script_version
     attributes:
       label: BAAS版本是否为最新
-      description: 请检查BAAS版本是否更新到最新, [查询方式](https://baas.wiki/usage_doc/update.html#%E5%A6%82%E4%BD%95%E6%9F%A5%E8%AF%A2%E5%BD%93%E5%89%8D%E7%89%88%E6%9C%AC)
+      description: 在报告问题前,请检查BAAS版本是否更新到最新, [查询方式](https://baas.wiki/usage_doc/update.html#%E5%A6%82%E4%BD%95%E6%9F%A5%E8%AF%A2%E5%BD%93%E5%89%8D%E7%89%88%E6%9C%AC)
+      options:
+        - label: 是, 我已经确认BAAS版本为最新
     validations:
       required: true
 
