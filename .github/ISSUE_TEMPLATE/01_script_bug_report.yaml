@@ -5,6 +5,11 @@ labels: ["问题修复", "脚本运行问题"]
 assignees:
   - pur1fying
 body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 请根据提示提交相关材料
+
   - type: checkboxes
     id: script_version
     attributes:
@@ -14,11 +19,6 @@ body:
         - label: 是, 我已经确认BAAS版本为最新
     validations:
       required: true
-
-  - type: markdown
-    attributes:
-      value: |
-        ## 请根据提示提交相关材料
 
   - type: dropdown
     id: operating_system
