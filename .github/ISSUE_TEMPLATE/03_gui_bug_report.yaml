@@ -1,36 +1,24 @@
-name: 启动器问题报告 ( Installer Bug Report )
-description: BAAS启动器无法更新 / 依赖无法安装
-title: "[Installer Bug]: "
-labels: ["问题修复", "GUI相关", "启动器问题"]
+name: GUI运行问题报告 ( GUI Bug Report )
+description: GUI 闪退 / 无法启动 / 显示异常
+title: "[GUI Bug]: "
+labels: ["问题修复", "GUI相关"]
 assignees:
-  - Kiramei,pur1fying
+  - kiramei
 body:
-  - type: dropdown
-    id: version
-    attributes:
-      label: 启动器版本 ( Installer Version )
-      description: BAAS启动器的版本
-      options:
-        - 1.4.3 (Latest)
-        - 1.4.2
-        - 1.4.1
-        - 1.4.0
-        - 1.3.0.1 Beta
-        - 1.3.0
-        - 1.2.0
-        - 1.1.3
-        - 1.1.2
-        - 1.1.1
-        - 1.1.0
-        - 1.0 Beta
-      default: 0
-    validations:
-      required: true
-
   - type: markdown
     attributes:
       value: |
-        ## 请根据提示提交相关材料
+        ### 请根据提示提交相关材料
+
+  - type: checkboxes
+    id: script_version
+    attributes:
+      label: BAAS版本是否为最新 ( BAAS Version )
+      description: 在报告问题前, 请检查BAAS版本是否更新到最新, [查询方式](https://baas.wiki/usage_doc/update.html#%E5%A6%82%E4%BD%95%E6%9F%A5%E8%AF%A2%E5%BD%93%E5%89%8D%E7%89%88%E6%9C%AC)
+      options:
+        - label: 是, 我已经确认BAAS版本为最新
+    validations:
+      required: true
 
   - type: dropdown
     id: operating_system
@@ -64,23 +52,11 @@ body:
       label: 报错日志 / 截图 / 录屏 ( Related Log )
       description: |
         请提供以下材料之一或多个：
-        - 启动器运行时的报错日志
-        - 录屏
+        - 问题出现时录屏
       placeholder: |
-        请在此处粘贴错误日志 / 截图 / 录屏
+        请在此处粘贴错误日志, 上传截图 / 录屏
     validations:
       required: true
-
-  - type: textarea
-    id: script_config
-    attributes:
-      label: 启动器配置文件 ( Installer Config )
-      description: |
-        如果你的BAAS版本高于1.4.0, 请上传setup.toml
-      placeholder: |
-        上传setup.toml
-    validations:
-      required: false
 
   - type: textarea
     id: additional_info
