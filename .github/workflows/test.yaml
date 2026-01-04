@@ -27,7 +27,7 @@ jobs:
       - name: display repo files
         run: dir baas_cpp
       - name: CMake Build
-        id: cmake configure
+        id: cmake_configure
         working-directory: ./baas_cpp
         run: |
           cmake -G Ninja ^
