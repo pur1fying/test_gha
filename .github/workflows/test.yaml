@@ -1,5 +1,11 @@
-name: CI
+name: test_build android lib workflow
 on:
+    workflow_dispatch:
+      inputs:
+        create_release:
+          description: 'Create new release'
+          required: true
+          type: boolean
     push:
         branches:
         - main
