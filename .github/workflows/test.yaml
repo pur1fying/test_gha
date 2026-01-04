@@ -14,26 +14,29 @@ on:
         - main
 
 jobs:
-  Windows-latest-cmake-x64:
-    name: ‘Test windows x64'
+  Android-arm64-v8a-lib:
+    name: ‘Android arm64-v8a lib build and release'
     runs-on: windows-latest
     steps:
-      - name: Clone
-        id: checkout
+      - name: Clone Source Repo
+        id: checkout_main
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Run Test
-        id: run_test
-        shell: cmd
+          path: "baas_cpp"
+      - name: display repo files
+        run: dir baas_cpp
+      - name: CMake Build
+        id: cmake configure
+        working-directory: ./baas_cpp
         run: |
-          cd D:\a\test_gha\test_gha
-          icacls "build\bin\BAAS_ocr_server.exe" /grant Everyone:(F)
-          echo "Run Test"
-          .\build\bin\BAAS_ocr_server.exe
-          .\build\bin\helloworld.exe
-          echo "Exit code: $?"
-          echo "Run Test Done"
-          python -m pip install --upgrade pip
-          python -m pip install -r apps/ocr_server/test/requirements.txt
-          python -m unittest discover -s .\apps\ocr_server\test -p "*.py"
+          cmake -G Ninja ^
+              -B build ^
+              -DCMAKE_TOOLCHAIN_FILE="%ANDROID_NDK_LATEST_HOME%\build\cmake\android.toolchain.cmake" ^
+              -DANDROID_NDK_PATH="%ANDROID_NDK_LATEST_HOME%" ^
+              -DANDROID_ABI=arm64-v8a ^
+              -DANDROID_PLATFORM=android-26 ^
+              -DBUILD_BAAS_OCR=ON ^
+              -DBAAS_OCR_ANDROID_BUILD=ON ^
+              -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --config Release --target all -- -j 4
