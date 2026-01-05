@@ -25,6 +25,8 @@ jobs:
         id: checkout_main
         uses: actions/checkout@v4
         with:
+          repository: pur1fying/BAAS_Cpp
+          ref: main
           fetch-depth: 0
           path: "baas_cpp"
 
