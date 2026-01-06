@@ -41,3 +41,10 @@ jobs:
         run: |
           cmake -G Ninja -B build -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK_LATEST_HOME\build\cmake\android.toolchain.cmake" -DANDROID_NDK_PATH="$env:ANDROID_NDK_LATEST_HOME" -DANDROID_ABI=${{ matrix.target_arch }} -DANDROID_PLATFORM=android-26 -DBUILD_BAAS_OCR=ON -DBAAS_OCR_ANDROID_BUILD=ON -DCMAKE_BUILD_TYPE=Release
           cmake --build build --config Release --target BAAS_ocr_server -- -j 4
+      
+      - name: Upload Artifacts
+        if: ${{ ( github.event_name == 'push' && github.ref == 'refs/heads/main' ) || github.event.inputs.create_release == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./baas_cpp/build/bin
+          name: baas-ocr-android-lib-${{ matrix.target_arch }}
